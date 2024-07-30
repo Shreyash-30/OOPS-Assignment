@@ -1,0 +1,33 @@
+public abstract class Shape {
+	double length;
+	double breadth;
+	
+	Scanner sc = new Scanner(System.in);
+	public Shape() {
+		
+	}
+
+	public Shape(double length, double breadth) {
+		
+		this.length = length;
+		this.breadth = breadth;
+	}
+	public void accept() {
+		System.out.println("Enter length of " + this.getClass().getSimpleName());
+		this.length = sc.nextDouble();
+		
+		System.out.println("Enter breadth of " + this.getClass().getSimpleName());
+		this.breadth = sc.nextDouble();
+		
+	}
+	
+	public void display() {
+		System.out.println("Lenth : " + this.length );
+		System.out.println("Breadth : " + this.breadth);
+	}
+	
+	public abstract int computeArea();
+	
+	
+
+}
