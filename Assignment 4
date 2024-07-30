@@ -27,7 +27,81 @@ public abstract class Shape {
 	}
 	
 	public abstract int computeArea();
+
+}
+public class Rectangle extends Shape{
+
+	public Rectangle() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Rectangle(double length, double breadth) {
+		super(length, breadth);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void accept() {
+		// TODO Auto-generated method stub
+		super.accept();
+	}
+
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+		super.display();
+	}
+
+	@Override
+	public double computeArea() {
+		double area = length * breadth;
+		System.out.println("Area = " + area);
+		return area;
+	}
 	
 	
 
 }
+public class Triangle extends Shape {
+
+	public Triangle() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Triangle(double length, double breadth) {
+		super(length, breadth);
+		
+	}
+
+	@Override
+	public void accept() {
+		// TODO Auto-generated method stub
+		super.accept();
+	}
+
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+		super.display();
+	}
+
+	@Override
+	public double computeArea() {
+		double area = (0.5) * (length * breadth);
+		System.out.println("Area of Traingle : " + area);
+		return area;
+	}
+	
+}
+public class Main {
+
+	public static void main(String[] args) {
+       Rectangle r = new Rectangle();
+       r.accept();
+       r.computeArea();
+	}
+
+}
+
