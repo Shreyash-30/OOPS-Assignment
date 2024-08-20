@@ -1,0 +1,89 @@
+Assignment
+public interface Vehicle {
+	boolean start();
+  void gearChange();
+  int speedUp(int speed);
+  int applyBreaks(int speed);
+}
+public class Bicycle implements Vehicle{
+Scanner sc = new Scanner(System.in);
+	@Override
+	public boolean start() {
+		System.out.println("Enter " + " O " + "To Start the vehicle" );
+		String s = sc.next();
+		if(s.equalsIgnoreCase("o")) {
+			System.out.println("Bicycle is Started");
+					return true;
+		}
+		else {
+			return false;
+		}
+				
+	}
+
+	@Override
+	public void gearChange() {
+		System.out.println("Bicycle has no gear");
+		
+		
+	}
+
+	@Override
+	public int speedUp(int speed) {
+		// TODO Auto-generated method stub
+		
+				
+		while(true) {
+			System.out.println("Enter b to apply breaks");
+			System.out.println("c to spped up");
+			String b = sc.next();
+			switch(b) {
+			case "c" : speed+=5;
+			           System.out.println("Speeding up " + speed);
+			           break;
+			case "b":  System.out.println("Breaks are applied");
+			           return speed;
+			           
+			 default : System.out.println("Enter correct");
+			
+			        
+			
+			}
+			
+	
+			
+			
+																				
+		}
+		
+	}
+
+	@Override
+	public int applyBreaks (int speed) {
+		
+		while(true) {
+			System.out.println("Enter r to release the breaks");
+			System.out.println("Enter c to continue breaks");
+			System.out.println("Enter s to stop the vehicle");
+			String b = sc.next();
+			switch(b) {
+			case "c" :  speed--;
+			           System.out.println("Speeding down " + speed);
+			           break;
+			case "s" : 
+			case "r":  System.out.println("Breaks are released");
+			           
+			           return speed;
+			           
+			 default : System.out.println("Enter correct");
+			
+			        
+			
+			}
+
+		}
+	}
+	
+
+}
+
