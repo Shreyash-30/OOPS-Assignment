@@ -1,0 +1,90 @@
+package Files;
+import java.io.*;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		File f = new File("//home//ubuntu//eclipse-workspace//FileHandeling//Streams.txt");
+		bufferWrite(f);
+//		writeFile(f);
+//		readFile(f);
+//		scannerRead(f);
+		bufferReader(f);
+	}
+	
+	public static File crateFile(String name) throws IOException {
+		File f = new File( name);
+		if(f.createNewFile()) {
+			System.out.println("File is created successfully");
+			System.out.println(f.getName());
+			System.out.println(f.getAbsolutePath());
+			
+		}
+		else {
+			System.out.println("File is not created");
+		}
+		return f;
+	}
+	public static void writeFile(File f) throws IOException {
+		String s = "File Handeling project";
+		
+		FileWriter fw = new FileWriter(f.getAbsolutePath());
+	    fw.write(s);
+	     fw.close();
+		
+	}
+	public static void readFile(File f) throws IOException {
+		
+		FileInputStream r = new FileInputStream(f.getAbsoluteFile());
+		int d = 0;
+		
+		String s = "";
+		while((d = r.read())!=-1) {
+			char c = (char) d;
+			s+=c;
+			
+			
+		}
+		System.out.println(s);
+		r.close();
+	}
+	public static void scannerRead(File f) {
+		try (Scanner sc = new Scanner(f))  
+		{  
+		 
+		while (sc.hasNextLine())          
+		System.out.println(sc.nextLine());    
+		}  
+		catch(Exception e)  
+		{  
+		System.out.println(e);
+		}  
+	}
+	public static void bufferReader(File f) throws FileNotFoundException {
+		
+			BufferedReader br = new BufferedReader(new FileReader(f));
+		
+			System.out.println("file content: ");  
+			int d=0;  
+			String s = "";
+			
+				while((d=br.read())!=-1)  
+				{  
+				  s+=(char)d;
+				}  
+				System.out.println(s);
+			
+			
+	}
+	public static void bufferWrite(File f) throws IOException {
+		FileWriter fWrite = new FileWriter(f.getAbsolutePath());
+		BufferedWriter w = new BufferedWriter(fWrite);
+		System.out.println("Buffered Writer start writing :)");
+		 w.write("File data");
+		System.out.println("Written successfully");
+		w.close();
+	}
+}
+		
+	
+
