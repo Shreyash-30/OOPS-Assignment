@@ -1,0 +1,93 @@
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		List<Integer> li = accept();
+		System.out.println("Even " + countEven(li));
+		System.out.println("Odd " + countOdd(li));
+		System.out.println("Prime " + countPrime(li));
+		System.out.println("Palindrome " + isPalindrome(li));
+
+		
+	}
+	public static List<Integer> accept() {
+		List<Integer> li = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number");
+		int n = sc.nextInt();
+		
+		
+		for(int i = 1; i<n; i++) {
+			li.add(i);
+		}
+
+		return li;
+	}
+	public static int countEven(List<Integer>li) {
+		int cnt =0;
+		for(int i =0; i<li.size(); i++) {
+			if(li.get(i) %2 == 0) {
+				cnt++;
+			}
+		}
+		return cnt;
+		
+	}
+	public static int countOdd(List<Integer>li) {
+		int cnt =0;
+		
+		for(int i =0; i<li.size(); i++) {
+			if(li.get(i) %2 != 0) {
+				cnt++;
+			}
+		}
+		return cnt;
+	}
+	public static int countPrime(List<Integer> li) {
+		int cnt = 0;
+		boolean prime[] = new boolean[li.size() + 1];
+        for (int i = 0; i <= li.size(); i++)
+            prime[i] = true;
+
+        for (int p = 2; p * p <= li.size(); p++) {
+          
+            if (prime[p] == true) {
+               
+                for (int i = p * p; i <= li.size(); i += p)
+                    prime[i] = false;
+            }
+        }
+        
+        for (int i = 2; i <= li.size(); i++) {
+            if (prime[i] == true)
+               cnt++;
+        }
+        return cnt;
+		
+	}
+	public static int isPalindrome(List<Integer>li) {
+		int reverse = 0;
+		int cnt = 0;
+		for(int i = 0; i <li.size(); i++) {
+			int el = li.get(i);
+			int num = li.get(i);
+			while(el>0) {
+				int mod = el%10;
+				reverse = (reverse*10) + mod;
+				el = el/10;
+			}
+			
+			if(reverse == num) {
+				cnt++;
+				
+				reverse = 0;
+			}
+			else {
+				reverse = 0;
+			}
+			
+		}
+		return cnt;
+	}
+
+}
