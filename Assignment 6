@@ -59,6 +59,71 @@ public static void exception() {
 		super(message);
 		
 	}
+public static void arithmeticExp() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a first number");
+		 int a  = sc.nextInt();
+			System.out.println("Enter a second number");
+			 int b  = sc.nextInt();
+			 
+			 try {
+				 int d = a/b ;
+				 System.out.println("Division of two numbers " + d);
+				 
+				 
+			 }
+			 catch(ArithmeticException e) {
+				 System.out.println(e);
+				 System.out.println("Number can not be divided by zero");
+			 }
+			 
+	}
+	public static void numberFormat() {
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+			System.out.println("Enter a first number");
+			int a = Integer.parseInt(sc.next());
+				System.out.println("Enter a second number");
+				 int b  = Integer.parseInt(sc.next());
+				 try {
+					 int d = a/b;
+					 System.out.println("Division of two numbers " + d);
+					 
+				 }catch(ArithmeticException e) {
+					 System.out.println(e);
+					 System.out.println("Number can not be divided by zero");
+				 }
+				 
+		}catch(NumberFormatException n) {
+			System.out.println(n);
+			System.out.println("Number format exception occured");
+			
+		}
+	
+			 
+	}
+	public static void arrayException() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Length of Array is 5");
+		System.out.println("Enter no of elements to add in array");
+		int n = sc.nextInt();
+		int[] arr = new int[5];
+		try {
+			for(int i = 0; i<n; i++) {
+				arr[i] =sc.nextInt();
+			}for(int el : arr) {
+				System.out.println(el);
+			}
+			
+			
+		}catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println(e);
+			System.out.println("Enter elements less than " + arr.length);
+		}
+		
+	}
+
 	 
  
  }
